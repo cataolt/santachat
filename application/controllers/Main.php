@@ -23,7 +23,7 @@ class Main extends CI_Controller {
     public function wellcome() {
         $user = $this->user->getUser();
         if($user && $this->user->isValidUser($user->id)){
-            redirect(site_url().'/main/user');
+            redirect(site_url().'main/user');
         } else {
             $this->load->view('header');
             $this->load->view('wellcome');
@@ -42,7 +42,7 @@ class Main extends CI_Controller {
                 $this->load->view('user',$data);
                 $this->load->view('footer', $data);
         } else {
-            redirect(site_url().'/main/loginregister');
+            redirect(site_url().'main/loginregister');
         }
     }
 
@@ -52,7 +52,7 @@ class Main extends CI_Controller {
         if($user && $this->user->isValidUser($user->id)){
             $this->form_validation->set_rules('message', 'Message', 'required');
             if($this->form_validation->run() == FALSE) {
-                redirect(site_url().'/main/user');
+                redirect(site_url().'main/user');
             } else {
                 $user = $this->user->getUser();
                 $clean = $this->security->xss_clean($this->input->post(NULL, TRUE));
@@ -60,10 +60,10 @@ class Main extends CI_Controller {
                 $clean['user_id'] = $user->id;
                 $this->message->insertMessage($clean);
                 $this->message->changeStatus($clean['parent_id'],1);
-                redirect(site_url().'/main/user');
+                redirect(site_url().'main/user');
             }
         } else {
-            redirect(site_url().'/main/loginregister');
+            redirect(site_url().'main/loginregister');
         }
     }
 
@@ -90,14 +90,14 @@ class Main extends CI_Controller {
         }else{
             if($this->user->isDuplicate($this->input->post('email'))){
                 $this->session->set_flashdata('flash_message', 'Emailul este deja folosit!');
-                redirect(site_url().'/main/loginregister');
+                redirect(site_url().'main/loginregister');
             }else{
                 $clean = $this->security->xss_clean($this->input->post(NULL, TRUE));
                 $id = $this->user->insertUser($clean);
                 $token = $this->user->insertToken($id);
 
                 $qstring = $this->base64url_encode($token);
-                $link = site_url() . '/main/complete/token/' . $token;
+                $link = site_url() . 'main/complete/token/' . $token;
 
                 $this->email->set_mailtype('html');
                 $this->email->set_header('MIME-Version', '1.0; charset=utf-8');
@@ -108,6 +108,8 @@ class Main extends CI_Controller {
 
                 $this->email->subject('Activare cont');
                 $this->email->set_crlf( "\r\n" );
+                $this->email->set_newline( "\r\n" );
+
                 $this->email->message($this->load->view('email/email_confirmation', array('link'=>$link), TRUE));
                 if($this->email->send())
                 {
@@ -139,28 +141,28 @@ class Main extends CI_Controller {
                 if($this->input->post('email') != $user->email) {
                     if ($this->user->isDuplicate($this->input->post('email'))) {
                         $this->session->set_flashdata('flash_message', 'Emailul este deja folosit!');
-                        redirect(site_url() . '/main/editaccount');
+                        redirect(site_url() . 'main/editaccount');
                     }
                 } else {
                     $clean = $this->security->xss_clean($this->input->post(NULL, TRUE));
                     $id = $this->user->updateUser($user->id, $clean);
-                    redirect(site_url().'/main/user');
+                    redirect(site_url().'main/user');
                 };
             }
         } else {
-            redirect(site_url().'/main/loginregister');
+            redirect(site_url().'main/loginregister');
         }
     }
 
     public function complete()
     {
-        $token = base64_decode($this->uri->segment(4));
+        $token = $this->uri->segment(4);
         $cleanToken = $this->security->xss_clean($token);
 
         $user_info = $this->user->isTokenValid($cleanToken); //either false or array();
         if(!$user_info || $user_info->active == 0){
             $this->session->set_flashdata('flash_message', 'Emailul este invalid sau expirat');
-            redirect(site_url().'/main/login');
+            redirect(site_url().'main/login');
         }
 
         $this->user->changeStatus($user_info->id);
@@ -192,14 +194,14 @@ class Main extends CI_Controller {
         }else{
             $user = $this->user->getUser();
             if($user && $this->user->isValidUser($user->id)){
-                redirect(site_url().'/main/user');
+                redirect(site_url().'main/user');
             }
             $post = $this->input->post();
             $clean = $this->security->xss_clean($post);
             $userInfo = $this->user->checkLogin($clean);
             if(!$userInfo){
                 $this->session->set_flashdata('flash_message', 'The login was unsucessful');
-                redirect(site_url().'/main/login');
+                redirect(site_url().'main/login');
             }
                 $this->session->set_userdata(array('id' => $userInfo->id));
             $cookie = array(
@@ -211,7 +213,7 @@ class Main extends CI_Controller {
             );
 //            set_cookie($cookie);
 
-            redirect(site_url().'/main/user');
+            redirect(site_url().'main/user');
         }
     }
 
@@ -231,11 +233,11 @@ class Main extends CI_Controller {
 
             if(!$userInfo){
                 $this->session->set_flashdata('flash_message', 'We cant find your email address');
-                redirect(site_url().'/main/login');
+                redirect(site_url().'main/login');
             }
             if($userInfo->status != 1){ //if status is not approved
                 $this->session->set_flashdata('flash_message', 'Your account is not in approved status');
-                redirect(site_url().'/main/login');
+                redirect(site_url().'main/login');
             }
 
             //build token
@@ -253,10 +255,12 @@ class Main extends CI_Controller {
 
             $this->email->subject('Resetare parola');
             $this->email->set_crlf( "\r\n" );
+            $this->email->set_newline( "\r\n" );
+
             $this->email->message($this->load->view('email/email_confirmation', array('link'=>$url), TRUE));
             if($this->email->send())
             {
-                redirect(site_url().'/main/user');
+                redirect(site_url().'main/user');
             }
             else
             {
@@ -304,7 +308,7 @@ class Main extends CI_Controller {
             }else{
                 $this->session->set_flashdata('flash_message', 'Parola a fost resetata.');
             }
-            redirect(site_url().'/main/login');
+            redirect(site_url().'main/login');
         }
     }
 
@@ -314,7 +318,7 @@ class Main extends CI_Controller {
             $this->session->unset_userdata('id');
             delete_cookie('user');
         }
-        redirect(site_url().'/main/user');
+        redirect(site_url().'main/user');
     }
 
     public function children(){
@@ -330,11 +334,11 @@ class Main extends CI_Controller {
                 $page =  $pages[array_rand($pages)];
                 $this->load->view('santachat/pages/' . $page);
             } else {
-                redirect(site_url().'/main/letters');
+                redirect(site_url().'main/letters');
             }
             $this->load->view('santachat/footer');
         } else {
-            redirect(site_url().'/main/noaccount');
+            redirect(site_url().'main/noaccount');
         }
     }
 
@@ -359,7 +363,7 @@ class Main extends CI_Controller {
                 $clean['user_id'] = $user->id;
                 $this->message->insertMessage($clean);
 
-                $link = site_url() . '/main/user';
+                $link = site_url() . 'main/user';
 
                 $this->email->set_mailtype('html');
                 $this->email->set_header('MIME-Version', '1.0; charset=utf-8');
@@ -370,20 +374,23 @@ class Main extends CI_Controller {
 
                 $this->email->subject('Mesaj nou');
                 $this->email->set_crlf( "\r\n" );
+                $this->email->set_newline( "\r\n" );
+
+                $this->email->set_newline( "\r\n" );
                 $this->email->message($this->load->view('email/email_new_message', array('link'=>$link), TRUE));
                 if($this->email->send())
                 {
-                    redirect(site_url().'/main/children');
+                    redirect(site_url().'main/children');
                 }
                 else
                 {
                     show_error($this->email->print_debugger());
                 }
 
-                redirect(site_url().'/main/children');
+                redirect(site_url().'main/children');
             }
         } else {
-            redirect(site_url().'/main/children');
+            redirect(site_url().'main/children');
         }
     }
 
@@ -398,7 +405,7 @@ class Main extends CI_Controller {
             $this->load->view('santachat/letters',$data);
             $this->load->view('santachat/footer');
         } else {
-            redirect(site_url().'/main/children');
+            redirect(site_url().'main/children');
         }
     }
 

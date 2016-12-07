@@ -15,6 +15,9 @@
     <link href="<?php echo site_url();?>/../public/plugins/bootstrap-3.3.6-dist/bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="<?php echo site_url();?>/../public/styles/style.css" rel="stylesheet" />
     <script src="<?php echo site_url();?>/../public/scripts/jquery-2.2.4.min.js"></script>
+    <script src="<?php echo site_url();?>/../public/plugins/jScrollPane-master/style/jquery.jscrollpane.css"></script>
+    <script src="<?php echo site_url();?>/../public/plugins/jScrollPane-master/script/jquery.mousewheel.js"></script>
+    <script src="<?php echo site_url();?>/../public/plugins/jScrollPane-master/script/jquery.jscrollpane.min.js"></script>
 </head>
 <body>
 <!--[if lt IE 8]>
@@ -50,7 +53,7 @@
                     </a>
                 </li>
                 <li class="middle-logo">
-                    <a href="http://minunino.ro">
+                    <a href="http://minunino.ro" target="_top">
                         <img src="<?php echo site_url();?>/../public/images/layer_7.png" />
                     </a>
                 </li>
@@ -73,23 +76,23 @@
             <ul class="nav navbar-nav navbar-right">
                 <?php if (isset($logged)): ?>
                     <li>
-                        <a href="<?php echo site_url();?>/main/editaccount">
+                        <a href="<?php echo site_url();?>main/editaccount">
                             <img src="<?php echo site_url();?>/../public/images/account.png" />
                         </a>
                     </li>
                     <li>
-                        <a href="<?php echo site_url();?>/main/logout">
+                        <a href="<?php echo site_url();?>main/logout">
                             <img src="<?php echo site_url();?>/../public/images/power.png" />
                         </a>
                     </li>
                 <?php endif; ?>
                 <li>
-                    <a href="http://minunino.ro/contact">
+                    <a href="http://minunino.ro/contact" target="_top">
                         <img src="<?php echo site_url();?>/../public/images/layer_6.png" />
                     </a>
                 </li>
                 <li>
-                    <a href="https://www.facebook.com/Minunino">
+                    <a href="https://www.facebook.com/Minunino" target="_top">
                         <img src="<?php echo site_url();?>/../public/images/layer_5.png" />
                     </a>
                 </li>

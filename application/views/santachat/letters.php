@@ -29,7 +29,7 @@
 
 <script type="text/javascript">
     $(".response-button").click(function() {
-        window.location.href = "<?php echo site_url();?>/main/letter";
+        window.location.href = "<?php echo site_url();?>main/letter";
     });
 
     $("#singlebutton").click(function() {

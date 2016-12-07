@@ -25,6 +25,6 @@
     });
 
     $('#next').click(function(){
-        window.location.href = "<?php echo site_url().'/main/user' ?>";
+        window.location.href = "<?php echo site_url().'main/user' ?>";
     });
 </script>

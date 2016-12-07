@@ -18,7 +18,7 @@ class Cron extends CI_Controller {
                 $userId = $message->user_id;
                 $userinfo = $user->getUserInfo($userId);
 
-                $link = site_url() . '/main/user';
+                $link = site_url() . 'main/user';
 
                 $this->email->set_mailtype('html');
                 $this->email->set_header('MIME-Version', '1.0; charset=utf-8');
@@ -29,6 +29,8 @@ class Cron extends CI_Controller {
 
                 $this->email->subject('Email Test');
                 $this->email->set_crlf( "\r\n" );
+                $this->email->set_newline( "\r\n" );
+
                 $this->email->message($this->load->view('email/email_new_message', array('link'=>$link), TRUE));
                 if($this->email->send())
                 {

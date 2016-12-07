@@ -5,7 +5,7 @@
                 <label>Buna <?php echo $firstName; ?>, te rugam introdu noua parola de 2 ori:</label>
                 <?php
                 $fattr = array('class' => 'form-signin');
-                echo form_open(site_url().'/main/reset_password/token/'.$token, $fattr); ?>
+                echo form_open(site_url().'main/reset_password/token/'.$token, $fattr); ?>
                 <div class="form-group">
                     <?php echo form_password(array('name'=>'password', 'id'=> 'password', 'placeholder'=>'Parola', 'class'=>'form-control', 'value' => set_value('password'))); ?>
                     <?php echo form_error('password') ?>

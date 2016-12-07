@@ -1,7 +1,7 @@
 <div class="col-lg-4 col-lg-offset-4">
     <h2>Please login</h2>
     <?php $fattr = array('class' => 'form-signin');
-    echo form_open(site_url().'/main/login/', $fattr); ?>
+    echo form_open(site_url().'main/login/', $fattr); ?>
     <div class="form-group">
         <?php echo form_input(array(
             'name'=>'email',
@@ -29,7 +29,7 @@
     <h5>Creeaza cont nou:</h5>
     <?php
     $fattr = array('class' => 'form-register');
-    echo form_open('/main/register', $fattr); ?>
+    echo form_open('main/register', $fattr); ?>
     <div class="form-group">
         <?php echo form_input(array('name'=>'firstname', 'id'=> 'firstname', 'placeholder'=>'Prenume', 'class'=>'form-control', 'value' => set_value('firstname'))); ?>
         <?php echo form_error('firstname');?>

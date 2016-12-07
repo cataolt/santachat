@@ -2,7 +2,7 @@
     <h5>Creeaza cont nou:</h5>
     <?php
     $fattr = array('class' => 'form-signin');
-    echo form_open('/main/register', $fattr); ?>
+    echo form_open('main/register', $fattr); ?>
     <div class="form-group">
         <?php echo form_input(array('name'=>'firstname', 'id'=> 'firstname', 'placeholder'=>'Prenume', 'class'=>'form-control', 'value' => set_value('firstname'))); ?>
         <?php echo form_error('firstname');?>

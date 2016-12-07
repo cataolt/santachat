@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-xs-12">
                 <?php $fattr = array('class' => 'form-signin');
-                echo form_open(site_url().'/main/login/', $fattr); ?>
+                echo form_open(site_url().'main/login/', $fattr); ?>
                     <div class="row">
                         <div class="col-xs-12">
                             <label>
@@ -26,9 +26,9 @@
                         </div>
                     </div>
                 <?php echo form_close(); ?>
-                <p>Apasa <a href="<?php echo site_url();?>/main/forgot">aici</a> daca ai uitat parola.</p>
+                <p>Apasa <a href="<?php echo site_url();?>main/forgot">aici</a> daca ai uitat parola.</p>
                 <?php $fattr = array('class' => 'form-register');
-                echo form_open('/main/register', $fattr); ?>
+                echo form_open('main/register', $fattr); ?>
                     <div class="row">
                         <div class="col-xs-12">
                             <?php

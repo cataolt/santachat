@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-xs-12">
                 <?php $fattr = array('class' => 'form-update');
-                echo form_open('/main/editaccount', $fattr); ?>
+                echo form_open('main/editaccount', $fattr); ?>
                 <div class="row">
                     <div class="col-xs-12">
                         <?php

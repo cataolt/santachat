@@ -5,7 +5,7 @@
                     <div class="col-xs-12">
                         <div class="write-block scisors">
                             <?php $fattr = array('id' => 'respond-letter', 'class' => 'respond-letter');
-                            echo form_open(site_url().'/main/response/', $fattr); ?>
+                            echo form_open(site_url().'main/response/', $fattr); ?>
                             <div> <textarea name="message" id="textarea-response"></textarea>
                                 <img src="<?php echo site_url();?>/../public/images/Stampila.png" />
                                 <button id="submit-response">

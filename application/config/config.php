@@ -35,7 +35,7 @@ $config['base_url'] = '';
 | variable so that it is blank.
 |
 */
-$config['index_page'] = 'index.php';
+$config['index_page'] = '';
 
 /*
 |--------------------------------------------------------------------------
@@ -515,4 +515,4 @@ $config['proxy_ips'] = '';
 $config['status'] = array(0=>'pending', 1=>'approved');
 $config['pages'] = array(0=>'blue', 1=>'green', 2=>'grey', 3=>'grey-light', 4=>'orange', 5=>'purple', 6=>'red');
 
-$config['site_url'] = '';
+$config['site_url'] = 'santachat.ro';

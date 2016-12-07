@@ -1,4 +1,8 @@
-﻿.blue-background {
+﻿body {
+    height: 100vh;
+}
+
+.blue-background {
     background: #00aeef;
 }
 
@@ -31,8 +35,8 @@
 }
 
 .icon-background {
-    background-image: url('../images/icons-bg.png');
-    height: 100vh;
+    background-image: url('../images/fundal2.png');
+    height: 100%;
     background-size: cover;
     background-attachment: fixed;
     padding: 45px 0 0 0;
@@ -626,4 +630,24 @@ text-decoration: none;
     -moz-transition: background-position .1s linear;
     -o-transition: background-position .1s linear;
     transition: background-position .1s linear;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+::-webkit-scrollbar-button:start:decrement,
+::-webkit-scrollbar-button:end:increment  {
+    height: 10px;
+    background-color: transparent;
+}
+::-webkit-scrollbar-track-piece  {
+    background-color: #eeeeee;
+    -webkit-border-radius: 16px;
+}
+::-webkit-scrollbar-thumb:vertical {
+    height: 10px;
+    background-color: #EE4136;
+    border: 1px solid #eee;
+    -webkit-border-radius: 16px;
 }
