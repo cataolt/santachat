@@ -100,6 +100,39 @@
     box-shadow: 5px 5px 16px #111;
 }
 
+.center-me .type1 {
+    font-family: 'Gravitas One', regular;
+    font-size: 22.8px;
+}
+.center-me .type2 {
+    font-family: 'Sacramento', regular;
+    font-size: 27.81px;
+}
+.center-me .type3 {
+    font-family: 'Ramaraja', regular;
+    font-size: 16.8px;
+}
+.center-me .type4 {
+    font-family: 'Sacramento', regular;
+    font-size: 29.9px;
+}
+.center-me .type5 {
+    font-family: 'Gravitas One', regular;
+    font-size: 16.8px;
+}
+.center-me .type6 {
+    font-family: 'Ramaraja', regular;
+    font-size: 19.93px;
+}
+.center-me .type7 {
+    font-family: 'Great Vibes', regular;
+    font-size: 40.87px;
+}
+.center-me .type8 {
+    font-family: 'Gravitas One', regular;
+    font-size: 28.47px;
+}
+
 .center-me h1 {
     font-family: 'Great Vibes', cursive;
     margin: 0;

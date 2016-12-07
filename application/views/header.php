@@ -15,9 +15,6 @@
     <link href="<?php echo site_url();?>/../public/plugins/bootstrap-3.3.6-dist/bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="<?php echo site_url();?>/../public/styles/style.css" rel="stylesheet" />
     <script src="<?php echo site_url();?>/../public/scripts/jquery-2.2.4.min.js"></script>
-    <script src="<?php echo site_url();?>/../public/plugins/jScrollPane-master/style/jquery.jscrollpane.css"></script>
-    <script src="<?php echo site_url();?>/../public/plugins/jScrollPane-master/script/jquery.mousewheel.js"></script>
-    <script src="<?php echo site_url();?>/../public/plugins/jScrollPane-master/script/jquery.jscrollpane.min.js"></script>
 </head>
 <body>
 <!--[if lt IE 8]>

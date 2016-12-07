@@ -513,6 +513,6 @@ $config['rewrite_short_tags'] = FALSE;
 $config['proxy_ips'] = '';
 
 $config['status'] = array(0=>'pending', 1=>'approved');
-$config['pages'] = array(0=>'blue', 1=>'green', 2=>'grey', 3=>'grey-light', 4=>'orange', 5=>'purple', 6=>'red');
+$config['pages'] = array(0=>'blue', 1=>'green', 2=>'grey-light', 3=>'orange', 4=>'purple', 5=>'red');
 
 $config['site_url'] = 'santachat.ro';

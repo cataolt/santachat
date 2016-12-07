@@ -333,7 +333,7 @@ class Main extends CI_Controller {
             if(empty($messages) && $data['sentMessage']){
                 $pages = $this->pages;
                 $page =  $pages[array_rand($pages)];
-                $this->load->view('santachat/pages/' . $page);
+                $this->load->view('santachat/pages/' . $pages[1]);
             } else {
                 if(empty($messages) && empty($sentMessages)){
                     redirect(site_url().'main/letter');
