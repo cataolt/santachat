@@ -330,11 +330,14 @@ class Main extends CI_Controller {
             $data['message'] = $messages;
             $data['sentMessage'] = $sentMessages;
             $this->load->view('santachat/header');
-            if(empty($messages)){
+            if(empty($messages) && $data['sentMessage']){
                 $pages = $this->pages;
                 $page =  $pages[array_rand($pages)];
                 $this->load->view('santachat/pages/' . $page);
             } else {
+                if(empty($messages) && empty($sentMessages)){
+                    redirect(site_url().'main/letter');
+                }
                 redirect(site_url().'main/letters');
             }
             $this->load->view('santachat/footer');
@@ -354,7 +357,7 @@ class Main extends CI_Controller {
                 $data['message'] = $messages;
                 $data['sentMessage'] = $sentMessages;
 
-                $this->load->view('santachat/header');
+                $this->load->view('santachat/header', array('noletter' => true));
                 $this->load->view('santachat/content',$data);
                 $this->load->view('santachat/footer');
             } else {
