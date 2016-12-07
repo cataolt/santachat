@@ -14,9 +14,8 @@
         <div class="text" style="height: 250px; width: 450px; font-weight: bold; text-align: left; margin: 100px 200px 50px 150px; font-size: 20.63px; font-family: "Ramaraja",regular;">
             <div>
                 Mosule, esti aproape Mos Craciun! </br>
-                Da click pe link-ul urmator pentru a activa contul:
+                Da click <a href="{unwrap}<?php echo $link; ?>{/unwrap}">aici</a> pentru a activa contul:
             </div>
-            <div class="url" style="margin: 30px 0 30px 0;"><a href="{unwrap}<?php echo $link; ?>{/unwrap}">Link</a></div>
             <div>Iar daca link-ul nu merge copiaza aceasta adresa in browser:</div>
             <div class="url" style="margin: 30px 0 30px 0;><a href="{unwrap}<?php echo $link; ?>{/unwrap}">{unwrap}<?php echo $link; ?>{/unwrap}</a></div>
             <div>Iar daca vrei sa ne cunosti mai bine si sa afli cum iti putem proteja copilul de problemele mai pamantesti ale acestui sezon, cum ar fi raceala, gripa, tusea, raguseala sau febra, te asteptam pe minunino.ro sau pe facebook.com/minunino.</div>
