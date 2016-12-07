@@ -21,7 +21,7 @@
 </div>
 <script type="text/javascript">
     setTimeout(function () {
-       window.location.href= '<?php echo site_url().'main/user' ?>'; // the redirect goes here
+        window.top.location.href = '<?php echo 'http://minuninoprotector.ro' ?>'; // the redirect goes here
 
     },5000);
 </script>

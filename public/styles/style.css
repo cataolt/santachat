@@ -580,9 +580,32 @@
 .btn-xl{
     padding: 10px 20px;
     font-size: 20px;
-    border-radius: 10px;
+    border-radius: 0;
     width:50%;
-    background-color: #8064A2;
+    color: #ec1c23;
+    background-color: #ffffff;
+}
+
+.btn-xl:focus {
+    color: #fff;
+    background-color: #ee4136; // Here is the black background-color
+text-decoration: none;
+    background-position: 0 -15px; // moves the background
+-webkit-transition: background-position .1s linear;
+    -moz-transition: background-position .1s linear;
+    -o-transition: background-position .1s linear;
+    transition: background-position .1s linear;
+}
+
+.btn-xl:hover {
+    color: #fff;
+    background-color: #ee4136; // Here is the black background-color
+text-decoration: none;
+    background-position: 0 -15px; // moves the background
+-webkit-transition: background-position .1s linear;
+    -moz-transition: background-position .1s linear;
+    -o-transition: background-position .1s linear;
+    transition: background-position .1s linear;
 }
 
 @media all and ( min-width: 560px ) {
@@ -653,4 +676,8 @@ text-decoration: none;
     background-color: #EE4136;
     border: 1px solid #eee;
     -webkit-border-radius: 16px;
+}
+
+.form-control{
+    border-radius: 0;
 }
