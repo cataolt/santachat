@@ -42,7 +42,7 @@ class Main extends CI_Controller {
                 $this->load->view('user',$data);
                 $this->load->view('footer', $data);
         } else {
-            redirect(site_url().'main/loginregister');
+            redirect(site_url().'main/wellcome');
         }
     }
 
