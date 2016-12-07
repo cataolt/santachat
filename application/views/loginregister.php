@@ -54,14 +54,14 @@
                             <?php echo form_input(array('name'=>'phone', 'id'=> 'phone', 'placeholder'=>'Numar de telefon', 'class'=>'form-control', 'value'=> set_value('phone'))); ?>
                             <?php echo form_error('phone');?>
 
-                            <label class="remove-padding">
-                                <input type="checkbox" class="option-input checkbox"  name="subscribed"/>
-                                <span>Sunt de acord sa am abonez la newsletterul Minunino</span>
-                            </label>
-                            <label class="remove-padding">
-                                <input type="checkbox" class="option-input checkbox" CHECKED name="terms"/>
-                                <span>Sunt de acord cu termenii si conditiile</span>
-                            </label>
+<!--                            <label class="remove-padding">-->
+                                <input type="checkbox" class="option-input checkbox go-left" CHECKED name="subscribed"/>
+                                <label>Sunt de acord sa ma abonez la newsletterul Minunino</label>
+<!--                            </label>-->
+<!--                            <label class="remove-padding">-->
+                                <input type="checkbox" class="option-input checkbox go-left" CHECKED name="terms"/>
+                                <label>Sunt de acord cu termenii si conditiile</label>
+<!--                            </label>-->
                             <br/>
                             <br/>
                             <?php echo form_error('terms');?>

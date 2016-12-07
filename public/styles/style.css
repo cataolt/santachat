@@ -248,7 +248,7 @@
 
 .site-content label span {
     position: relative;
-    top: 7px;
+    padding-bottom: 10px;
 }
 
 .site-content form input {
@@ -686,4 +686,10 @@ text-decoration: none;
 
 .form-control{
     border-radius: 0;
+}
+
+.go-left {
+    float: left;
+    margin-bottom: 0 !important;
+    margin-right: 10px !important;
 }
