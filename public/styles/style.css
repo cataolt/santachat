@@ -28,6 +28,9 @@
 .blue-background .navbar-default .nav:first-child img {
     margin-top: 50px;
 }
+.blue-background .navbar-default .nav:first-child img .horizontal-image {
+    margin-top: 65px;
+}
 
 .blue-background .navbar-default .nav:first-child .middle-logo img {
     margin-top: 0;

@@ -64,7 +64,7 @@
                 </li>
                 <li>
                     <a>
-                        <img src="<?php echo site_url();?>/../public/images/layer_11.png" />
+                        <img class="horizontal-image" src="<?php echo site_url();?>/../public/images/layer_11.png" />
                     </a>
                 </li>
                 <li>
