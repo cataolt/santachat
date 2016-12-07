@@ -273,7 +273,7 @@ class Main extends CI_Controller {
 
     public function reset_password()
     {
-        $token = $this->base64url_decode($this->uri->segment(4));
+        $token = $this->uri->segment(4);
         $cleanToken = $this->security->xss_clean($token);
 
         $user_info = $this->user->isTokenValid($cleanToken); //either false or array();
