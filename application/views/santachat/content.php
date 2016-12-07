@@ -30,4 +30,11 @@
             return false;
         }
     });
+
+$( document ).ready(function() {
+    val = $( "#textarea-message" ).val();
+
+    // focus textarea, clear value, re-apply
+    $( "#textarea-message" ).focus().val("").val(val);
+});
 </script>
