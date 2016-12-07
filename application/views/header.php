@@ -53,7 +53,7 @@
                     </a>
                 </li>
                 <li class="middle-logo">
-                    <a href="http://minunino.ro" target="_top">
+                    <a href="http://minunino.ro" target="_blank">
                         <img src="<?php echo site_url();?>/../public/images/layer_7.png" />
                     </a>
                 </li>
@@ -87,12 +87,12 @@
                     </li>
                 <?php endif; ?>
                 <li>
-                    <a href="http://minunino.ro/contact" target="_top">
+                    <a href="http://minunino.ro/contact" target="_blank">
                         <img src="<?php echo site_url();?>/../public/images/layer_6.png" />
                     </a>
                 </li>
                 <li>
-                    <a href="https://www.facebook.com/Minunino" target="_top">
+                    <a href="https://www.facebook.com/Minunino" target="_blank">
                         <img src="<?php echo site_url();?>/../public/images/layer_5.png" />
                     </a>
                 </li>

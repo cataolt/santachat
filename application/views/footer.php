@@ -1,3 +1,4 @@
+<div class="footer-space"></div>
 <div class="mobile-menu move-bottom">
     <div class="container">
         <div class="row">
@@ -25,12 +26,12 @@
                     </div>
                 <?php else: ?>
                     <div class="pull-left">
-                        <a href="http://minunino.ro/contact" target="_top">
+                        <a href="http://minunino.ro/contact" target="_blank">
                             <img src="<?php echo site_url();?>/../public/images/layer_6.png" />
                         </a>
                     </div>
                     <div class="pull-right">
-                        <a href="https://www.facebook.com/Minunino" target="_top">
+                        <a href="https://www.facebook.com/Minunino" target="_blank">
                             <img src="<?php echo site_url();?>/../public/images/layer_5.png" />
                         </a>
                     </div>

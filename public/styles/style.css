@@ -17,7 +17,7 @@
     text-align: center;
 }
 
-@media(min-width: 767px) {
+@media(min-device-width: 767px) {
     .blue-background .navbar-default .nav:first-child {
         float: none;
         margin: 0 auto;
@@ -608,11 +608,17 @@ text-decoration: none;
     transition: background-position .1s linear;
 }
 
-@media all and ( min-width: 560px ) {
+@media all and ( min-device-width: 560px ) {
     .div_style {
         width: 778px;
         padding-bottom: 40%;
         margin: auto;
+    }
+}
+
+@media all and ( min-device-width: 560px ) {
+    .footer-space {
+        height: 60px;
     }
 }
 

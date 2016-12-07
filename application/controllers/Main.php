@@ -200,10 +200,11 @@ class Main extends CI_Controller {
             $clean = $this->security->xss_clean($post);
             $userInfo = $this->user->checkLogin($clean);
             if(!$userInfo){
-                $this->session->set_flashdata('flash_message', 'The login was unsucessful');
+                $this->session->set_flashdata('flash_message', 'Adresa de email sau parola sunt gresite!');
                 redirect(site_url().'main/login');
-            }
+            } else {
                 $this->session->set_userdata(array('id' => $userInfo->id));
+            }
             $cookie = array(
                 'name'   => 'user',
                 'value'  => $userInfo->id,
