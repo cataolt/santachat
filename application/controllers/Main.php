@@ -97,7 +97,7 @@ class Main extends CI_Controller {
                 $token = $this->user->insertToken($id);
 
                 $qstring = $this->base64url_encode($token);
-                $link = site_url() . 'main/complete/token/' . $token;
+                $link = 'http://minuninoprotector.ro/complete.php/' . $token;
 
                 $this->email->set_mailtype('html');
                 $this->email->set_header('MIME-Version', '1.0; charset=utf-8');
@@ -244,7 +244,7 @@ class Main extends CI_Controller {
 
             $token = $this->user->insertToken($userInfo->id);
             $qstring = $this->base64url_encode($token);
-            $url = site_url() . 'main/reset_password/token/' . $qstring;
+            $url = 'http://minuninoprotector.ro/forget.php/' . $qstring;
 
             $this->email->set_mailtype('html');
             $this->email->set_header('MIME-Version', '1.0; charset=utf-8');
@@ -363,7 +363,7 @@ class Main extends CI_Controller {
                 $clean['user_id'] = $user->id;
                 $this->message->insertMessage($clean);
 
-                $link = site_url() . 'main/user';
+                $link = 'http://minuninoprotector.ro';
 
                 $this->email->set_mailtype('html');
                 $this->email->set_header('MIME-Version', '1.0; charset=utf-8');

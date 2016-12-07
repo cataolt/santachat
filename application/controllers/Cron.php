@@ -18,7 +18,7 @@ class Cron extends CI_Controller {
                 $userId = $message->user_id;
                 $userinfo = $user->getUserInfo($userId);
 
-                $link = site_url() . 'main/user';
+                $link = 'http://minuninoprotector.ro';
 
                 $this->email->set_mailtype('html');
                 $this->email->set_header('MIME-Version', '1.0; charset=utf-8');
