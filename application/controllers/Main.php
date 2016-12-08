@@ -333,7 +333,7 @@ class Main extends CI_Controller {
             if(empty($messages) && $data['sentMessage']){
                 $pages = $this->pages;
                 $page =  $pages[array_rand($pages)];
-                $this->load->view('santachat/pages/' . $pages[1]);
+                $this->load->view('santachat/pages/' . $page);
             } else {
                 if(empty($messages) && empty($sentMessages)){
                     redirect(site_url().'main/letter');
@@ -382,20 +382,26 @@ class Main extends CI_Controller {
 
                 $this->email->set_newline( "\r\n" );
                 $this->email->message($this->load->view('email/email_new_message', array('link'=>$link), TRUE));
-                if($this->email->send())
-                {
-                    redirect(site_url().'main/children');
-                }
-                else
-                {
-                    show_error($this->email->print_debugger());
-                }
+//                if($this->email->send())
+//                {
+//                    redirect(site_url().'main/children');
+//                }
+//                else
+//                {
+//                    show_error($this->email->print_debugger());
+//                }
 
-                redirect(site_url().'main/children');
+                redirect(site_url().'main/lettersuccess');
             }
         } else {
             redirect(site_url().'main/children');
         }
+    }
+
+    public function lettersuccess(){
+        $this->load->view('santachat/header');
+        $this->load->view('santachat/pages/grey');
+        $this->load->view('santachat/footer');
     }
 
     public function letters()

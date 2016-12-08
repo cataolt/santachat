@@ -1,15 +1,14 @@
-<div class="icon-background">
-    <div class="container">
         <?php $i=0; ?>
         <?php foreach($message as $mess):?>
-            <div class="row vertical-middle letter" <?php echo ($i!=0)?'style="display:none;"':''; ?>>
+            <div class="row vertical-middle move-bottom" <?php echo ($i!=0)?'style="display:none;"':''; ?>>
                 <div class="col-xs-12">
-                    <div class="write-block scisors">
-                        <div> <textarea readonly><?php echo $mess->message; ?></textarea>
-                            <img src="<?php echo site_url();?>/../public/images/Stampila.png" />
-                            <button class="response-button">
-                                Raspunde
-                            </button></div>
+                    <div class="write-block scisors children">
+                         <textarea readonly><?php echo $mess->message; ?></textarea>
+                            <img class="cover" src="<?php echo site_url();?>/../public/images/cover.png" />
+                            <img class="img-mobile" src="<?php echo site_url();?>/../public/images/Stampila.png" />
+                        <button class="response-button">
+                            Raspunde
+                        </button>
                     </div>
                 </div>
             </div>
@@ -23,9 +22,6 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>
-
 
 <script type="text/javascript">
     $(".response-button").click(function() {
