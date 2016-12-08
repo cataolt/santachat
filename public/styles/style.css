@@ -343,7 +343,7 @@
     color: #ec1c23;
 }
 
-.site-content form a {
+.site-content form a.button-signin {
     font-family: 'Ramaraja', serif;
     display: block;
     background: #fff;

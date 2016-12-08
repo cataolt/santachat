@@ -20,7 +20,7 @@
                             <?php echo form_error('password-login') ?>
                         </div>
                         <div class="col-xs-12 col-sm-2">
-                            <a id="login-button">
+                            <a class="button-signin" id="login-button">
                                 OK
                             </a>
                         </div>
@@ -60,7 +60,7 @@
 <!--                            </label>-->
 <!--                            <label class="remove-padding">-->
                                 <input type="checkbox" class="option-input checkbox go-left" CHECKED name="terms"/>
-                                <label>Sunt de acord cu termenii si conditiile</label>
+                                <label>Sunt de acord cu <a href="http://minuninoprotector.ro/terms.pdf" target="_blank"> termenii si conditiile </a></label>
 <!--                            </label>-->
                             <br/>
                             <br/>
