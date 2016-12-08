@@ -233,11 +233,11 @@ class Main extends CI_Controller {
             $userInfo = $this->user->getUserInfoByEmail($clean);
 
             if(!$userInfo){
-                $this->session->set_flashdata('flash_message', 'We cant find your email address');
+                $this->session->set_flashdata('flash_message', 'Adresa de email este invalida');
                 redirect(site_url().'main/login');
             }
             if($userInfo->status != 1){ //if status is not approved
-                $this->session->set_flashdata('flash_message', 'Your account is not in approved status');
+                $this->session->set_flashdata('flash_message', 'Contul nu este inca activ');
                 redirect(site_url().'main/login');
             }
 
@@ -245,7 +245,7 @@ class Main extends CI_Controller {
 
             $token = $this->user->insertToken($userInfo->id);
             $qstring = $this->base64url_encode($token);
-            $url = 'http://minuninoprotector.ro/forget.php/' . $qstring;
+            $url = 'http://minuninoprotector.ro/forget.php/' . $token;
 
             $this->email->set_mailtype('html');
             $this->email->set_header('MIME-Version', '1.0; charset=utf-8');
@@ -258,7 +258,7 @@ class Main extends CI_Controller {
             $this->email->set_crlf( "\r\n" );
             $this->email->set_newline( "\r\n" );
 
-            $this->email->message($this->load->view('email/email_confirmation', array('link'=>$url), TRUE));
+            $this->email->message($this->load->view('email/forgotpassword', array('link'=>$url), TRUE));
             if($this->email->send())
             {
                 redirect(site_url().'main/user');
@@ -280,13 +280,13 @@ class Main extends CI_Controller {
         $user_info = $this->user->isTokenValid($cleanToken); //either false or array();
 
         if(!$user_info){
-            $this->session->set_flashdata('flash_message', 'Token is invalid or expired');
+            $this->session->set_flashdata('flash_message', 'Linkul nu mai este valid');
             redirect(site_url().'main/login');
         }
         $data = array(
             'firstName'=> $user_info->firstname,
             'email'=>$user_info->email,
-            'token'=>base64_encode($token),
+            'token'=>$token,
             'id'=>$user_info->id
         );
 
