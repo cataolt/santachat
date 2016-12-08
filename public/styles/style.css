@@ -132,6 +132,35 @@
     font-family: 'Gravitas One', regular;
     font-size: 28.47px;
 }
+.center-me .type9 {
+    font-family: 'Sacramento', regular;
+    font-size: 31.2px;
+}
+.center-me .type10 {
+    font-family: 'Gravitas One', regular;
+    font-size: 20.4px;
+}
+.center-me .type11 {
+    font-family: 'Great Vibes', regular;
+    font-size: 25.97px;
+}
+.center-me .type12 {
+    font-family: 'Sacramento', regular;
+    font-size: 26.91px;
+}
+.center-me .type13 {
+    font-family: 'Gravitas One', regular;
+    font-size: 18.36px;
+}
+.center-me .type14 {
+    font-family: 'Ramaraja', regular;
+    font-size: 17.94px;
+}
+.center-me .type15 {
+    font-family: 'Sacramento', regular;
+    font-size: 25.2px;
+}
+
 
 .center-me h1 {
     font-family: 'Great Vibes', cursive;
@@ -485,7 +514,7 @@
     position: relative;
     box-shadow: 5px 5px 16px #111;
     line-height: 35px;
-    background-attachment: local;
+    background-attachment: scroll;
     /* overflow-y: hidden; */
 }
 
@@ -497,15 +526,39 @@
     color: #163059;
 }
 
+.children textarea {
+    background-image: url('../images/Cartonscrisoare2.png');
+    height: 533px;
+    width: 70%;
+    background-color: transparent;
+    color: #163059;
+    padding: 180px 60px 50px !important;}
+
+.img-mobile {
+    display: none;
+}
+
+.cover {
+    display: none;
+}
+
 .scisors div {
     display: inline-block;
     position: relative;
 }
 
+.scisors .cover {
+    left: 14px;
+    width: 91%;
+    top: 0px;
+    max-width: 100%;
+    height: 140px;
+}
+
 .scisors img {
         position: absolute;
-        left: 30px;
-        top: 30px;
+        left: 50px;
+        top: 50px;
         max-width: 100%;
 }
 
@@ -530,10 +583,10 @@
 .scisors button {
     background: #ee4136;
     padding: 10px;
-    margin: 0 0 0 218px;
+    margin: 0;
     color: #fff;
-    font-family: 'Great Vibes', cursive;
-    font-size: 20px;
+    font-family: 'Great Vibes', regular;
+    font-size: 31.17px;
     display: -webkit-inline-box;
     margin-top: 0;
     position: absolute;
@@ -597,8 +650,44 @@
         position: relative;
         box-shadow: 5px 5px 16px #111;
         line-height: 35px;
-        background-attachment: local;
+        background-attachment: scroll;
         /* overflow-y: hidden; */
+    }
+
+    .scisors textarea {
+        background-image: url('../images/Cartonscrisoare.png');
+        height: 330px;
+        width: 440px;
+        background-color: transparent;
+        color: #163059;
+    }
+
+    .children textarea {
+        background-image: url('../images/Cartonscrisoare3.png');
+        height: 533px;
+        width: 100%;
+        background-color: transparent;
+        color: #163059;
+        background-attachment: scroll;
+        padding: 140px 10px 0 20px !important
+    }
+
+    .add-header h1 {
+        background: #ee4136;
+        padding: 10px;
+        margin: 0;
+        color: #fff;
+        font-family: 'Great Vibes', regular;
+        font-size: 19px;
+        display: -webkit-inline-box;
+        margin-top: 0;
+    }
+    .img-mobile {
+        display: block;
+    }
+
+    .cover {
+        display:block;
     }
 }
 

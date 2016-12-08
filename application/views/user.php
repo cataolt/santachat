@@ -17,13 +17,12 @@
                         </div>
                     </div>
             </div>
-            <?php $i = 0;?>
             <?php foreach ($message as $mess): ?>
                 <div class="row vertical-middle move-bottom" id="letter">
                     <div class="col-xs-12">
                         <div class="write-block">
                             <textarea readonly><?php echo htmlspecialchars($mess->message); ?></textarea>
-                            <?php if ($mess->read == 0 || $i == 0): ?>
+                            <?php if ($mess->read == 0): ?>
                                 <input type="hidden" value="<?php echo $mess->id;?>" class="message_id"/>
                                 <button id="respond-button">
                                     Raspunde
@@ -32,7 +31,6 @@
                         </div>
                     </div>
                 </div>
-                <?php $i++;?>
             <?php endforeach;?>
         </div>
     </div>
