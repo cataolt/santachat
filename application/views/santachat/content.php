@@ -17,11 +17,6 @@
 <div class="row footer-space-main"></div>
 
 <script type="text/javascript">
-//    $( "#respond-button" ).click(function() {
-//        $( "#letter" ).hide();
-//        $( "#response" ).show();
-//    });
-
     $( "#submit-letter" ).click(function() {
         if ($.trim($('#textarea-message').val()).length > 0) {
             $( "#respond-letter" ).submit();

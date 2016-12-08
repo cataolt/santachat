@@ -1,22 +1,23 @@
 <?php if(!empty($message)):?>
     <div>
         <div class="container">
-            <div class="row vertical-middle" style="display: none;" id="response">
+            <div class="row vertical-middle move-bottom" style="display: none;" id="response">
                     <div class="col-xs-12">
-                        <div class="write-block scisors">
+                        <div class="write-block scisors parent">
                             <?php $fattr = array('id' => 'respond-letter', 'class' => 'respond-letter');
                             echo form_open(site_url().'main/response/', $fattr); ?>
-                            <div> <textarea name="message" id="textarea-response"></textarea>
-                                <img src="<?php echo site_url();?>/../public/images/Stampila.png" />
-                                <button id="submit-response">
-                                    Raspunde
-                                </button>
-                            </div>
+                            <textarea name="message" id="textarea-response"></textarea>
+                            <img class="img-mobile" src="<?php echo site_url();?>/../public/images/Stampila.png" />
+                            <button id="submit-response">
+                                Trimite
+                            </button>
+
                             <input type="hidden" value="" name="parent_id" id="parent_id"/>
                             <?php echo form_close(); ?>
                         </div>
                     </div>
             </div>
+            <div class="element-spacer"></div>
             <?php foreach ($message as $mess): ?>
                 <div class="row vertical-middle move-bottom" id="letter">
                     <div class="col-xs-12">
@@ -31,6 +32,7 @@
                         </div>
                     </div>
                 </div>
+                <div class="element-spacer"></div>
             <?php endforeach;?>
         </div>
     </div>

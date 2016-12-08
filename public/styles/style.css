@@ -86,10 +86,6 @@
     /* margin: 30px 0; */
 }
 
-.letter {
-    height: 400px;
-}
-
 .center-me {
     color: #fff;
     padding: 100px 50px;
@@ -524,6 +520,7 @@
     width: 440px;
     background-color: transparent;
     color: #163059;
+    font-family: 'Tangerine', regular;
 }
 
 .children textarea {
@@ -532,7 +529,18 @@
     width: 70%;
     background-color: transparent;
     color: #163059;
-    padding: 180px 60px 50px !important;}
+    padding: 180px 60px 50px !important;
+}
+
+.parent textarea {
+    font-size: 50px;
+    background-image: url('../images/Cartonscrisoare1.png');
+    height: 533px;
+    width: 70%;
+    background-color: transparent;
+    color: #163059;
+    padding: 180px 60px 50px !important;
+}
 
 .img-mobile {
     display: none;
@@ -562,6 +570,12 @@
         max-width: 100%;
 }
 
+.parent img {
+    position: absolute;
+    left: 50px;
+    top: 50px;
+    max-width: 100%;
+}
 .write-block {
     text-align: center;
 }
@@ -656,6 +670,7 @@
 
     .scisors textarea {
         background-image: url('../images/Cartonscrisoare.png');
+        font-family: 'Tangerine', regular;
         height: 330px;
         width: 440px;
         background-color: transparent;
@@ -664,6 +679,16 @@
 
     .children textarea {
         background-image: url('../images/Cartonscrisoare3.png');
+        height: 533px;
+        width: 100%;
+        background-color: transparent;
+        color: #163059;
+        background-attachment: scroll;
+        padding: 140px 10px 0 20px !important
+    }
+
+    .parent textarea {
+        background-image: url('../images/Cartonscrisoare.png');
         height: 533px;
         width: 100%;
         background-color: transparent;
@@ -688,6 +713,10 @@
 
     .cover {
         display:block;
+    }
+
+    .element-spacer {
+        height: 70px;
     }
 }
 
@@ -785,6 +814,8 @@ textarea {
     font-family: "Great Vibes",cursive;
     font-size: 20px;
     padding: 10px;
+
+    position: fixed;
 }
 
 .more-button:focus {
