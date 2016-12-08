@@ -39,7 +39,7 @@
 
 .icon-background {
     background-image: url('../images/fundal2.png');
-    height: 150%;
+    /*height: 150%;*/
     background-size: cover;
     background-attachment: fixed;
     padding: 45px 0 0 0;
@@ -716,8 +716,12 @@
     }
 
     .element-spacer {
-        height: 70px;
+        display: none;
     }
+}
+
+.element-spacer {
+    height: 70px;
 }
 
 @media(max-width: 600px) {}

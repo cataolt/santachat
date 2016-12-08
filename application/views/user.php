@@ -1,7 +1,9 @@
+<div class="element-spacer"></div>
+
 <?php if(!empty($message)):?>
     <div>
         <div class="container">
-            <div class="row vertical-middle move-bottom" style="display: none;" id="response">
+            <div class="row move-bottom" style="display: none;" id="response">
                     <div class="col-xs-12">
                         <div class="write-block scisors parent">
                             <?php $fattr = array('id' => 'respond-letter', 'class' => 'respond-letter');
@@ -19,7 +21,7 @@
             </div>
             <div class="element-spacer"></div>
             <?php foreach ($message as $mess): ?>
-                <div class="row vertical-middle move-bottom" id="letter">
+                <div class="row move-bottom" id="letter">
                     <div class="col-xs-12">
                         <div class="write-block">
                             <textarea readonly><?php echo htmlspecialchars($mess->message); ?></textarea>

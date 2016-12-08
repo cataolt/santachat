@@ -1,6 +1,7 @@
+<div class="element-spacer"></div>
 <?php $i=0; ?>
 <?php foreach($message as $mess):?>
-    <div class="row vertical-middle letter move-bottom" <?php echo ($i!=0)?'style="display:none;"':''; ?>>
+    <div class="row letter move-bottom" <?php echo ($i!=0)?'style="display:none;"':''; ?>>
         <div class="col-xs-12">
             <div class="write-block scisors children">
                  <textarea readonly><?php echo $mess->message; ?></textarea>

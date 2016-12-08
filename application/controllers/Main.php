@@ -382,14 +382,14 @@ class Main extends CI_Controller {
 
                 $this->email->set_newline( "\r\n" );
                 $this->email->message($this->load->view('email/email_new_message', array('link'=>$link), TRUE));
-//                if($this->email->send())
-//                {
-//                    redirect(site_url().'main/children');
-//                }
-//                else
-//                {
-//                    show_error($this->email->print_debugger());
-//                }
+                if($this->email->send())
+                {
+                    redirect(site_url().'main/lettersuccess');
+                }
+                else
+                {
+                    show_error($this->email->print_debugger());
+                }
 
                 redirect(site_url().'main/lettersuccess');
             }
