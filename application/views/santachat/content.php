@@ -1,5 +1,5 @@
 <?php $parentId = null;?>
-<div class="row vertical-middle move-bottom">
+<div class="row move-bottom">
     <div class="col-xs-12">
         <div class="write-block">
             <?php $fattr = array('id' => 'respond-letter', 'class' => 'respond-letter');

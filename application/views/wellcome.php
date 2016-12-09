@@ -19,7 +19,7 @@
 <script type="text/javascript">
     $('.player').click(function(){
         video = '<div class="embed-responsive embed-responsive-4by3 div_style">' +
-            '<iframe width="778" height="453" class="embed-responsive-item" src="https://www.youtube.com/embed/VPjQtBb8fGo?autoplay=1&rel=0"></iframe>' +
+            '<iframe width="778" height="453" class="embed-responsive-item" src="https://www.youtube.com/embed/VPjQtBb8fGo?modestbranding=1&autoplay=1&rel=0&showinfo=0"></iframe>' +
             '</div>';
         $(this).replaceWith(video);
     });
