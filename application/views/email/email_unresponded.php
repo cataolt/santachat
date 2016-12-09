@@ -47,7 +47,7 @@
             <div>
                 Mosule, inca ai o scrisoare la care nu ai raspuns. <br/>
                 Ceea ce inseamna un copil nerabdator.<br/>
-                Asa ca fa-ti putin timp cand poti si ajuta magia sa se intample.Raspunde aici:
+                Asa ca fa-ti putin timp cand poti si ajuta magia sa se intample. Raspunde aici:
             </div>
             <div class="url" style="margin: 30px 0 30px 0;"><a href="{unwrap}<?php echo $link; ?>{/unwrap}">Link</a></div>
             <div>Iar daca link-ul nu merge copiaza aceasta adresa in browser:</div>

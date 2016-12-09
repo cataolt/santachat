@@ -476,10 +476,15 @@ class Main extends CI_Controller {
     }
 
     public function noaccount(){
-        $data['noletter'] = true;
-        $this->load->view('santachat/header',$data);
-        $this->load->view('santachat/noaccount');
-        $this->load->view('santachat/footer');
+        $user = $this->user->getUser();
+        if($user && $this->user->isValidUser($user->id)){
+            redirect(site_url().'main/children');
+        } else {
+            $data['noletter'] = true;
+            $this->load->view('santachat/header',$data);
+            $this->load->view('santachat/noaccount');
+            $this->load->view('santachat/footer');
+        }
     }
 
     public function loginexternal($session){
