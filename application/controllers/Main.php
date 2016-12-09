@@ -225,6 +225,43 @@ class Main extends CI_Controller {
         }
     }
 
+    public function loginfront()
+    {
+        $this->form_validation->set_rules('email-login', 'Email', 'required|valid_email');
+        $this->form_validation->set_rules('password-login', 'Parola', 'required');
+
+        if($this->form_validation->run() == FALSE) {
+            $data['noletter'] = true;
+            $this->load->view('santachat/header',$data);
+            $this->load->view('santachat/noaccount');
+            $this->load->view('santachat/footer');
+        }else{
+            $user = $this->user->getUser();
+            if($user && $this->user->isValidUser($user->id)){
+                redirect(site_url().'main/user');
+            }
+            $post = $this->input->post();
+            $clean = $this->security->xss_clean($post);
+            $userInfo = $this->user->checkLogin($clean);
+            if(!$userInfo){
+                $this->session->set_flashdata('flash_message', 'Adresa de email sau parola sunt gresite!');
+                redirect(site_url().'main/noaccount');
+            } else {
+                $this->session->set_userdata(array('id' => $userInfo->id));
+            }
+            $cookie = array(
+                'name'   => 'user',
+                'value'  => $userInfo->id,
+                'expire' => time()+86500,
+                'path'   => '/',
+                'secure' => TRUE
+            );
+//            set_cookie($cookie);
+
+            redirect(site_url());
+        }
+    }
+
     public function forgot()
     {
 
