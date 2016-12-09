@@ -214,6 +214,13 @@ class Main extends CI_Controller {
             );
 //            set_cookie($cookie);
 
+            if(isset($_SERVER['HTTP_USER_AGENT'])){
+                $agent = $_SERVER['HTTP_USER_AGENT'];
+            }
+
+            if(strlen(strstr($agent,"Safari")) > 0 ){
+            }
+
             redirect(site_url().'main/user');
         }
     }
@@ -436,5 +443,15 @@ class Main extends CI_Controller {
         $this->load->view('santachat/header',$data);
         $this->load->view('santachat/noaccount');
         $this->load->view('santachat/footer');
+    }
+
+    public function loginexternal($session){
+        set_cookie('ci_session', $session, 365 * 24 * 60 * 60);
+        $this->load->view('emptycontent',$session);
+    }
+
+    public function loginplaceholder() {
+        $cookie = get_cookie('ci_session');
+        $this->load->view('santachat/loginplaceholder', array('cookie' => $cookie));
     }
 }
