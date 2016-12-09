@@ -217,8 +217,8 @@ class Main extends CI_Controller {
             if(isset($_SERVER['HTTP_USER_AGENT'])){
                 $agent = $_SERVER['HTTP_USER_AGENT'];
             }
-
             if(strlen(strstr($agent,"Safari")) > 0 ){
+                redirect(site_url().'main/loginplaceholder/' . $userInfo->id);
             }
 
             redirect(site_url().'main/user');
@@ -446,12 +446,11 @@ class Main extends CI_Controller {
     }
 
     public function loginexternal($session){
-        set_cookie('ci_session', $session, 365 * 24 * 60 * 60);
-        $this->load->view('emptycontent',$session);
+        $this->session->set_userdata(array('id' => $session));
+        $this->load->view('emptycontent', array('cookie' => $session));
     }
 
-    public function loginplaceholder() {
-        $cookie = get_cookie('ci_session');
-        $this->load->view('santachat/loginplaceholder', array('cookie' => $cookie));
+    public function loginplaceholder($id) {
+        $this->load->view('loginplaceholder', array('cookie' => $id));
     }
 }
