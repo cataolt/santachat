@@ -420,6 +420,7 @@
     height: 18px;
     width: 18px;
     position: absolute;
+    content: '\2714';
     display: inline-block;
     font-size: 12.66667px;
     text-align: center;
