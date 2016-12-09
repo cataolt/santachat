@@ -6,11 +6,15 @@
 <head>
     <meta charset="utf-8" />
     <title>Login</title>
+
+    <link rel="shortcut icon" href="<?php echo site_url();?>/../public/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="<?php echo site_url();?>/../public/images/favicon1.ico" type="image/x-icon">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Gravitas+One" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Ramaraja" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Sacramento" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Tangerine" rel="stylesheet">
     <!--Style-->
     <link href="<?php echo site_url();?>/../public/plugins/bootstrap-3.3.6-dist/bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="<?php echo site_url();?>/../public/styles/style.css" rel="stylesheet" />
@@ -26,7 +30,7 @@
 <body>
 <script type="text/javascript">
   if(window.top === window.self){
-    window.top.location.href = "http://santachat.ro"; 
+//    window.top.location.href = "http://santachat.ro";
   }
 </script>
 <!--[if lt IE 8]>
