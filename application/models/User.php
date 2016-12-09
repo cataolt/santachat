@@ -111,7 +111,7 @@ class User extends CI_Model {
         $query = $this->db->get('users');
         $userInfo = $query->row();
 
-        if(!md5($post['password-login']) == $userInfo->password){
+        if(md5($post['password-login']) != $userInfo->password){
             error_log('Unsuccessful login attempt('.$post['email-login'].')');
             return false;
         }

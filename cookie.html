@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Framed Page</title>
+    <script src="//cdn.jsdelivr.net/g/jquery@1.11.0"></script>
+    <script src="//cdn.jsdelivr.net/jquery.cookie/1.4.0/jquery.cookie.min.js"></script>
+</head>
+<body style="background-color: lightcoral;">
+<h2>This is the framed site</h2>
+<h3>Where are my cookies?</h3>
+
+<script>
+    $.cookie('the_cookie', 'the_value',  { expires: 365, path: '/' }); // 1 year
+    window.location.replace(document.referrer);
+</script>
+</body>
+</html>

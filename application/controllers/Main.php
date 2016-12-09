@@ -23,7 +23,7 @@ class Main extends CI_Controller {
     public function wellcome() {
         $user = $this->user->getUser();
         if($user && $this->user->isValidUser($user->id)){
-            redirect(site_url().'/main/user');
+            redirect(site_url().'main/user');
         } else {
             $this->load->view('header');
             $this->load->view('wellcome');
@@ -42,7 +42,7 @@ class Main extends CI_Controller {
                 $this->load->view('user',$data);
                 $this->load->view('footer', $data);
         } else {
-            redirect(site_url().'/main/loginregister');
+            redirect(site_url().'main/wellcome');
         }
     }
 
@@ -52,7 +52,7 @@ class Main extends CI_Controller {
         if($user && $this->user->isValidUser($user->id)){
             $this->form_validation->set_rules('message', 'Message', 'required');
             if($this->form_validation->run() == FALSE) {
-                redirect(site_url().'/main/user');
+                redirect(site_url().'main/user');
             } else {
                 $user = $this->user->getUser();
                 $clean = $this->security->xss_clean($this->input->post(NULL, TRUE));
@@ -60,10 +60,10 @@ class Main extends CI_Controller {
                 $clean['user_id'] = $user->id;
                 $this->message->insertMessage($clean);
                 $this->message->changeStatus($clean['parent_id'],1);
-                redirect(site_url().'/main/user');
+                redirect(site_url().'main/user');
             }
         } else {
-            redirect(site_url().'/main/loginregister');
+            redirect(site_url().'main/loginregister');
         }
     }
 
@@ -90,14 +90,14 @@ class Main extends CI_Controller {
         }else{
             if($this->user->isDuplicate($this->input->post('email'))){
                 $this->session->set_flashdata('flash_message', 'Emailul este deja folosit!');
-                redirect(site_url().'/main/loginregister');
+                redirect(site_url().'main/loginregister');
             }else{
                 $clean = $this->security->xss_clean($this->input->post(NULL, TRUE));
                 $id = $this->user->insertUser($clean);
                 $token = $this->user->insertToken($id);
 
                 $qstring = $this->base64url_encode($token);
-                $link = site_url() . '/main/complete/token/' . $token;
+                $link = 'http://minuninoprotector.ro/complete.php/' . $token;
 
                 $this->email->set_mailtype('html');
                 $this->email->set_header('MIME-Version', '1.0; charset=utf-8');
@@ -108,6 +108,8 @@ class Main extends CI_Controller {
 
                 $this->email->subject('Activare cont');
                 $this->email->set_crlf( "\r\n" );
+                $this->email->set_newline( "\r\n" );
+
                 $this->email->message($this->load->view('email/email_confirmation', array('link'=>$link), TRUE));
                 if($this->email->send())
                 {
@@ -139,28 +141,28 @@ class Main extends CI_Controller {
                 if($this->input->post('email') != $user->email) {
                     if ($this->user->isDuplicate($this->input->post('email'))) {
                         $this->session->set_flashdata('flash_message', 'Emailul este deja folosit!');
-                        redirect(site_url() . '/main/editaccount');
+                        redirect(site_url() . 'main/editaccount');
                     }
                 } else {
                     $clean = $this->security->xss_clean($this->input->post(NULL, TRUE));
                     $id = $this->user->updateUser($user->id, $clean);
-                    redirect(site_url().'/main/user');
+                    redirect(site_url().'main/user');
                 };
             }
         } else {
-            redirect(site_url().'/main/loginregister');
+            redirect(site_url().'main/loginregister');
         }
     }
 
     public function complete()
     {
-        $token = base64_decode($this->uri->segment(4));
+        $token = $this->uri->segment(4);
         $cleanToken = $this->security->xss_clean($token);
 
         $user_info = $this->user->isTokenValid($cleanToken); //either false or array();
         if(!$user_info || $user_info->active == 0){
             $this->session->set_flashdata('flash_message', 'Emailul este invalid sau expirat');
-            redirect(site_url().'/main/login');
+            redirect(site_url().'main/login');
         }
 
         $this->user->changeStatus($user_info->id);
@@ -192,16 +194,17 @@ class Main extends CI_Controller {
         }else{
             $user = $this->user->getUser();
             if($user && $this->user->isValidUser($user->id)){
-                redirect(site_url().'/main/user');
+                redirect(site_url().'main/user');
             }
             $post = $this->input->post();
             $clean = $this->security->xss_clean($post);
             $userInfo = $this->user->checkLogin($clean);
             if(!$userInfo){
-                $this->session->set_flashdata('flash_message', 'The login was unsucessful');
-                redirect(site_url().'/main/login');
-            }
+                $this->session->set_flashdata('flash_message', 'Adresa de email sau parola sunt gresite!');
+                redirect(site_url().'main/login');
+            } else {
                 $this->session->set_userdata(array('id' => $userInfo->id));
+            }
             $cookie = array(
                 'name'   => 'user',
                 'value'  => $userInfo->id,
@@ -211,7 +214,51 @@ class Main extends CI_Controller {
             );
 //            set_cookie($cookie);
 
-            redirect(site_url().'/main/user');
+            if(isset($_SERVER['HTTP_USER_AGENT'])){
+                $agent = $_SERVER['HTTP_USER_AGENT'];
+            }
+            if(strlen(strstr($agent,"Safari")) > 0 ){
+                redirect(site_url().'main/loginplaceholder/' . $userInfo->id);
+            }
+
+            redirect(site_url().'main/user');
+        }
+    }
+
+    public function loginfront()
+    {
+        $this->form_validation->set_rules('email-login', 'Email', 'required|valid_email');
+        $this->form_validation->set_rules('password-login', 'Parola', 'required');
+
+        if($this->form_validation->run() == FALSE) {
+            $data['noletter'] = true;
+            $this->load->view('santachat/header',$data);
+            $this->load->view('santachat/noaccount');
+            $this->load->view('santachat/footer');
+        }else{
+            $user = $this->user->getUser();
+            if($user && $this->user->isValidUser($user->id)){
+                redirect(site_url().'main/user');
+            }
+            $post = $this->input->post();
+            $clean = $this->security->xss_clean($post);
+            $userInfo = $this->user->checkLogin($clean);
+            if(!$userInfo){
+                $this->session->set_flashdata('flash_message', 'Adresa de email sau parola sunt gresite!');
+                redirect(site_url().'main/noaccount');
+            } else {
+                $this->session->set_userdata(array('id' => $userInfo->id));
+            }
+            $cookie = array(
+                'name'   => 'user',
+                'value'  => $userInfo->id,
+                'expire' => time()+86500,
+                'path'   => '/',
+                'secure' => TRUE
+            );
+//            set_cookie($cookie);
+
+            redirect(site_url());
         }
     }
 
@@ -230,19 +277,19 @@ class Main extends CI_Controller {
             $userInfo = $this->user->getUserInfoByEmail($clean);
 
             if(!$userInfo){
-                $this->session->set_flashdata('flash_message', 'We cant find your email address');
-                redirect(site_url().'/main/login');
+                $this->session->set_flashdata('flash_message', 'Adresa de email este invalida');
+                redirect(site_url().'main/login');
             }
             if($userInfo->status != 1){ //if status is not approved
-                $this->session->set_flashdata('flash_message', 'Your account is not in approved status');
-                redirect(site_url().'/main/login');
+                $this->session->set_flashdata('flash_message', 'Contul nu este inca activ');
+                redirect(site_url().'main/login');
             }
 
             //build token
 
             $token = $this->user->insertToken($userInfo->id);
             $qstring = $this->base64url_encode($token);
-            $url = site_url() . 'main/reset_password/token/' . $qstring;
+            $url = 'http://minuninoprotector.ro/forget.php/' . $token;
 
             $this->email->set_mailtype('html');
             $this->email->set_header('MIME-Version', '1.0; charset=utf-8');
@@ -253,10 +300,12 @@ class Main extends CI_Controller {
 
             $this->email->subject('Resetare parola');
             $this->email->set_crlf( "\r\n" );
-            $this->email->message($this->load->view('email/email_confirmation', array('link'=>$url), TRUE));
+            $this->email->set_newline( "\r\n" );
+
+            $this->email->message($this->load->view('email/forgotpassword', array('link'=>$url), TRUE));
             if($this->email->send())
             {
-                redirect(site_url().'/main/user');
+                redirect(site_url().'main/user');
             }
             else
             {
@@ -269,19 +318,19 @@ class Main extends CI_Controller {
 
     public function reset_password()
     {
-        $token = $this->base64url_decode($this->uri->segment(4));
+        $token = $this->uri->segment(4);
         $cleanToken = $this->security->xss_clean($token);
 
         $user_info = $this->user->isTokenValid($cleanToken); //either false or array();
 
         if(!$user_info){
-            $this->session->set_flashdata('flash_message', 'Token is invalid or expired');
+            $this->session->set_flashdata('flash_message', 'Linkul nu mai este valid');
             redirect(site_url().'main/login');
         }
         $data = array(
             'firstName'=> $user_info->firstname,
             'email'=>$user_info->email,
-            'token'=>base64_encode($token),
+            'token'=>$token,
             'id'=>$user_info->id
         );
 
@@ -304,7 +353,7 @@ class Main extends CI_Controller {
             }else{
                 $this->session->set_flashdata('flash_message', 'Parola a fost resetata.');
             }
-            redirect(site_url().'/main/login');
+            redirect(site_url().'main/login');
         }
     }
 
@@ -314,7 +363,7 @@ class Main extends CI_Controller {
             $this->session->unset_userdata('id');
             delete_cookie('user');
         }
-        redirect(site_url().'/main/user');
+        redirect(site_url().'main/user');
     }
 
     public function children(){
@@ -325,20 +374,23 @@ class Main extends CI_Controller {
             $data['message'] = $messages;
             $data['sentMessage'] = $sentMessages;
             $this->load->view('santachat/header');
-            if(empty($messages)){
+            if(empty($messages) && $data['sentMessage']){
                 $pages = $this->pages;
                 $page =  $pages[array_rand($pages)];
                 $this->load->view('santachat/pages/' . $page);
             } else {
-                redirect(site_url().'/main/letters');
+                if(empty($messages) && empty($sentMessages)){
+                    redirect(site_url().'main/letter');
+                }
+                redirect(site_url().'main/letters');
             }
             $this->load->view('santachat/footer');
         } else {
-            redirect(site_url().'/main/noaccount');
+            redirect(site_url().'main/noaccount');
         }
     }
 
-    public function letter()
+    public function letter($id = null)
     {
         $user = $this->user->getUser();
         if($user && $this->user->isValidUser($user->id)){
@@ -348,8 +400,9 @@ class Main extends CI_Controller {
                 $sentMessages = $this->user->loadMessages($user->id,1);
                 $data['message'] = $messages;
                 $data['sentMessage'] = $sentMessages;
+                $data['letterId'] = $id;
 
-                $this->load->view('santachat/header');
+                $this->load->view('santachat/header', array('noletter' => true));
                 $this->load->view('santachat/content',$data);
                 $this->load->view('santachat/footer');
             } else {
@@ -358,8 +411,11 @@ class Main extends CI_Controller {
                 $clean['type'] = 1;
                 $clean['user_id'] = $user->id;
                 $this->message->insertMessage($clean);
+                if($id){
+                    $this->message->changeStatus($id,1);
+                }
 
-                $link = site_url() . '/main/user';
+                $link = 'http://minuninoprotector.ro';
 
                 $this->email->set_mailtype('html');
                 $this->email->set_header('MIME-Version', '1.0; charset=utf-8');
@@ -370,21 +426,30 @@ class Main extends CI_Controller {
 
                 $this->email->subject('Mesaj nou');
                 $this->email->set_crlf( "\r\n" );
+                $this->email->set_newline( "\r\n" );
+
+                $this->email->set_newline( "\r\n" );
                 $this->email->message($this->load->view('email/email_new_message', array('link'=>$link), TRUE));
                 if($this->email->send())
                 {
-                    redirect(site_url().'/main/children');
+                    redirect(site_url().'main/lettersuccess');
                 }
                 else
                 {
                     show_error($this->email->print_debugger());
                 }
 
-                redirect(site_url().'/main/children');
+                redirect(site_url().'main/lettersuccess');
             }
         } else {
-            redirect(site_url().'/main/children');
+            redirect(site_url().'main/children');
         }
+    }
+
+    public function lettersuccess(){
+        $this->load->view('santachat/header');
+        $this->load->view('santachat/pages/grey');
+        $this->load->view('santachat/footer');
     }
 
     public function letters()
@@ -398,7 +463,7 @@ class Main extends CI_Controller {
             $this->load->view('santachat/letters',$data);
             $this->load->view('santachat/footer');
         } else {
-            redirect(site_url().'/main/children');
+            redirect(site_url().'main/children');
         }
     }
 
@@ -415,5 +480,14 @@ class Main extends CI_Controller {
         $this->load->view('santachat/header',$data);
         $this->load->view('santachat/noaccount');
         $this->load->view('santachat/footer');
+    }
+
+    public function loginexternal($session){
+        $this->session->set_userdata(array('id' => $session));
+        $this->load->view('emptycontent', array('cookie' => $session));
+    }
+
+    public function loginplaceholder($id) {
+        $this->load->view('loginplaceholder', array('cookie' => $id));
     }
 }

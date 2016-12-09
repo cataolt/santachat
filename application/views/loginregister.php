@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-xs-12">
                 <?php $fattr = array('class' => 'form-signin');
-                echo form_open(site_url().'/main/login/', $fattr); ?>
+                echo form_open(site_url().'main/login/', $fattr); ?>
                     <div class="row">
                         <div class="col-xs-12">
                             <label>
@@ -20,15 +20,15 @@
                             <?php echo form_error('password-login') ?>
                         </div>
                         <div class="col-xs-12 col-sm-2">
-                            <a id="login-button">
+                            <a class="button-signin" id="login-button">
                                 OK
                             </a>
                         </div>
                     </div>
                 <?php echo form_close(); ?>
-                <p>Apasa <a href="<?php echo site_url();?>/main/forgot">aici</a> daca ai uitat parola.</p>
+                <p>Apasa <a href="<?php echo site_url();?>main/forgot">aici</a> daca ai uitat parola.</p>
                 <?php $fattr = array('class' => 'form-register');
-                echo form_open('/main/register', $fattr); ?>
+                echo form_open('main/register', $fattr); ?>
                     <div class="row">
                         <div class="col-xs-12">
                             <?php
@@ -54,14 +54,14 @@
                             <?php echo form_input(array('name'=>'phone', 'id'=> 'phone', 'placeholder'=>'Numar de telefon', 'class'=>'form-control', 'value'=> set_value('phone'))); ?>
                             <?php echo form_error('phone');?>
 
-                            <label class="remove-padding">
-                                <input type="checkbox" class="option-input checkbox"  name="subscribed"/>
-                                <span>Sunt de acord sa am abonez la newsletterul Minunino</span>
-                            </label>
-                            <label class="remove-padding">
-                                <input type="checkbox" class="option-input checkbox" CHECKED name="terms"/>
-                                <span>Sunt de acord cu termenii si conditiile</span>
-                            </label>
+<!--                            <label class="remove-padding">-->
+                                <input type="checkbox" class="option-input checkbox go-left" CHECKED name="subscribed"/>
+                                <label>Sunt de acord sa ma abonez la newsletterul Minunino</label>
+<!--                            </label>-->
+<!--                            <label class="remove-padding">-->
+                                <input type="checkbox" class="option-input checkbox go-left" CHECKED name="terms"/>
+                                <label>Sunt de acord cu <a href="http://minuninoprotector.ro/terms.pdf" target="_blank"> termenii si conditiile </a></label>
+<!--                            </label>-->
                             <br/>
                             <br/>
                             <?php echo form_error('terms');?>

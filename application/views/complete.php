@@ -19,3 +19,9 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    setTimeout(function () {
+        window.top.location.href = '<?php echo 'http://santachat.ro' ?>'; // the redirect goes here
+
+    },5000);
+</script>

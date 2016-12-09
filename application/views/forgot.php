@@ -4,7 +4,7 @@
             <div class="col-lg-4 col-lg-offset-4 ">
                 <label>Te rog introdu adresa de e-mail mai jos si iti vom trimite instructiuni cum sa resetezi parola</label>
                 <?php $fattr = array('class' => 'form-signin');
-                echo form_open(site_url().'/main/forgot/', $fattr); ?>
+                echo form_open(site_url().'main/forgot/', $fattr); ?>
                 <div class="form-group">
                     <?php echo form_input(array(
                         'name'=>'email',

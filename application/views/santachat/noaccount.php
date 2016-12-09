@@ -1,24 +1,47 @@
-<div class="light-blue">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12">
-                <img src="<?php echo site_url();?>/../public/images/Sanie.png" class="img-responsive"/>
+<div class="row vertical-middle">
+    <div class="col-xs-12">
+        <div class="center-me red-card no-account">
+            <div class = "site-content loginfront">
+                <?php $fattr = array('class' => 'form-signin');
+                echo form_open(site_url().'main/loginfront/', $fattr); ?>
+                    <div class="col-xs-5 col-sm-5">
+                        <?php echo form_input(array('name'=>'email-login', 'id'=> 'email-login', 'placeholder'=>'Email', 'class'=>'form-control', 'value'=> set_value('email-login'))); ?>
+                    </div>
+                    <div class="col-xs-5 col-sm-5">
+                        <?php echo form_password(array('name'=>'password-login', 'id'=> 'password', 'placeholder'=>'Parola', 'class'=>'form-control')); ?>
+                    </div>
+                    <div class="col-xs-2 col-sm-2">
+                        <a class="button-signin" id="login-button">
+                            OK
+                        </a>
+                    </div>
+                <?php echo form_close(); ?>
             </div>
-            <div class="col-xs-12">
-                <h1>
-                    Dintr-un motiv sau altul <br/>
-                    pagina Santa Chat este, momentan, inactiva.
-                </h1>
-                <h2>
-                    Trimite un mail catre
-                </h2>
-                <h3>
-                    <script type="text/javascript">document.write('s'+'e'+'c'+'r'+'e'+'t'+'a'+'r'+'a'+'m'+'o'+'s'+'u'+'l'+'u'+'i'+'@'+' s'+'a'+'n'+'t'+'a'+'c'+'h'+'a'+'t'+'.'+'r'+'o');</script>
-                </h3>
-                <h2>
-                    Si vom vedea cum o poti activa.
-                </h2>
-            </div>
+            <h2 class="type13">
+                De aici
+            </h2>
+            <h2 class="type13">
+                ii poti scrie
+            </h2>
+            <h2 class="type13">
+                de scrisori zilnic
+            </h2>
+            <h3 class="type11">
+                Daca nu ai deja cont,
+            </h3>
+            <p class="type11">
+                inscrie-te pentru o invitatie cu un mail la
+            </p>
+            <span class="type18">
+                <script type="text/javascript">document.write('s'+'e'+'c'+'r'+'e'+'t'+'a'+'r'+'a'+'m'+'o'+'s'+'u'+'l'+'u'+'i'+'@'+'s'+'a'+'n'+'t'+'a'+'c'+'h'+'a'+'t'+'.'+'r'+'o');</script>
+            </span>
+        </div>
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    $( "#login-button" ).click(function() {
+        $( ".form-signin" ).submit();
+    });
+</script>
