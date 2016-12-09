@@ -37,7 +37,7 @@
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <a class="navbar-brand"">
+            <a class="navbar-brand" href="http://santachat.ro">
                 <img src="<?php echo site_url();?>/../public/images/logo.png" />
             </a>
             <img src="<?php echo site_url();?>/../public/images/layer_7.png" class="visible-xs hidden-sm pull-right" />

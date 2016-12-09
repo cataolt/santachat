@@ -346,7 +346,7 @@ class Main extends CI_Controller {
         }
     }
 
-    public function letter()
+    public function letter($id = null)
     {
         $user = $this->user->getUser();
         if($user && $this->user->isValidUser($user->id)){
@@ -356,6 +356,7 @@ class Main extends CI_Controller {
                 $sentMessages = $this->user->loadMessages($user->id,1);
                 $data['message'] = $messages;
                 $data['sentMessage'] = $sentMessages;
+                $data['letterId'] = $id;
 
                 $this->load->view('santachat/header', array('noletter' => true));
                 $this->load->view('santachat/content',$data);
@@ -366,6 +367,9 @@ class Main extends CI_Controller {
                 $clean['type'] = 1;
                 $clean['user_id'] = $user->id;
                 $this->message->insertMessage($clean);
+                if($id){
+                    $this->message->changeStatus($id,1);
+                }
 
                 $link = 'http://minuninoprotector.ro';
 

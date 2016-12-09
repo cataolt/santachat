@@ -296,7 +296,7 @@
     max-width: 500px;
     display: block;
     margin: 0 auto;
-    margin-top: 50px;
+    margin-top: 0px;
 }
 
 .site-content label {
@@ -504,7 +504,7 @@
     height: 533px;
     padding: 110px 50px 0 130px !important;
     text-align: center;
-    font-family: 'Great Vibes', cursive;
+    font-family: 'Sacramento', cursive;
     font-size: 30px;
     color: #45529D;
     outline: none;
@@ -643,7 +643,14 @@
     }
 }
 
+.sticky div.text-center{
+    width: 80%
+}
+
 @media(max-width: 630px) {
+    .sticky div.text-center{
+        width: 53%
+    }
     .write-block button {
         bottom: -4px;
         right: 15px;
@@ -658,7 +665,7 @@
         height: 533px;
         padding: 110px 20px 0 20px !important;
         text-align: center;
-        font-family: 'Great Vibes', cursive;
+        font-family: 'Sacramento', cursive;
         font-size: 30px;
         color: #45529D;
         outline: none;
@@ -813,13 +820,13 @@ textarea {
 .more-button {
     background: #ee4136 none repeat scroll 0 0;
     border: 0 none;
-    bottom: 6px;
+    bottom: 0px;
     color: #fff;
     display: -webkit-inline-box;
     font-family: "Great Vibes",cursive;
     font-size: 20px;
     padding: 10px;
-
+    border-radius: 0;
     position: fixed;
 }
 

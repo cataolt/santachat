@@ -19,7 +19,7 @@
 <script type="text/javascript">
     $('img').click(function(){
         video = '<div class="embed-responsive embed-responsive-4by3 div_style">' +
-            '<iframe width="778" height="453" class="embed-responsive-item" src="http://www.youtube.com/embed/jLHGnvnw-gI?autoplay=1"></iframe>' +
+            '<iframe width="778" height="453" class="embed-responsive-item" src="http://www.youtube.com/embed/jLHGnvnw-gI?autoplay=1&rel=0"></iframe>' +
             '</div>';
         $(this).replaceWith(video);
     });

@@ -7,9 +7,12 @@
                  <textarea readonly><?php echo $mess->message; ?></textarea>
                     <img class="cover" src="<?php echo site_url();?>/../public/images/cover.png" />
                     <img class="img-mobile" src="<?php echo site_url();?>/../public/images/Stampila.png" />
-                <button class="response-button">
-                    Raspunde
-                </button>
+                <?php if($mess->read == 0): ?>
+                    <input type="hidden" value="<?php echo $mess->id;?>" name="parent_id" id="parent_id"/>
+                    <button class="response-button">
+                        Raspunde
+                    </button>
+                <?php endif;?>
             </div>
         </div>
     </div>
@@ -17,18 +20,20 @@
     <?php $i++; ?>
 <?php endforeach; ?>
 
-<div class="row">
-    <div class="col-sm-12">
-        <div class="text-center">
-            <button class="btn btn-primary more-button" id="singlebutton"> Vezi mai multe scrisori</button>
-        </div>
+<?php if($i>1): ?>
+    <div class="row sticky">
+            <div class="text-center">
+                <button class="btn more-button" id="singlebutton"> Vezi mai multe scrisori</button>
+            </div>
     </div>
-</div>
+<?php endif; ?>
 
 
 <script type="text/javascript">
     $(".response-button").click(function() {
-        window.location.href = "<?php echo site_url();?>main/letter";
+        var letterId = $(this).parent().find('input:hidden:first').val();
+        var location = "<?php echo site_url();?>main/letter/" + letterId;
+        window.location.href = location;
     });
 
     $("#singlebutton").click(function() {

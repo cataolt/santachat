@@ -8,7 +8,7 @@
                 scrisoarea ta a fost preluata
             </h1>
             <p class="type3">
-                Postasul Spiridus...
+                de Postasul Spiridus...
             </p>
             <h3 class="type13">
                 Mos Craciun
