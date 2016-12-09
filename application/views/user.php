@@ -64,7 +64,7 @@
                             <textarea readonly><?php echo htmlspecialchars($mess->message); ?></textarea>
                             <?php if($mess->read == 0): ?>
                                 <input type="hidden" value="<?php echo $mess->id;?>" class="message_id"/>
-                                <button id="respond-button">
+                               <button id="respond-button" class="respond-button">
                                     Raspunde
                                 </button>
                             <?php endif;?>
@@ -78,8 +78,8 @@
 <?php endif; ?>
 
 <script type="text/javascript">
-    $( "#respond-button" ).click(function() {
-        $(this).parents("#letter").hide();
+    $( ".respond-button" ).click(function() {
+        //$(this).parents("#letter").hide();
         $( "#response" ).show();
         $("#parent_id").val(($(this).parent().find('input:hidden:first').val()));
         $('html,body').scrollTop(0);

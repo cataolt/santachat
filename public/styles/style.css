@@ -168,9 +168,12 @@
 .center-me .type18 {
     font-family: 'Ramaraja', regular;
     font-size: 19.93px;
-    color: #FFF100;
+    color: #FFF100 !important;
 }
-
+.type18 a{
+    text-decoration: none;
+    color: #FFF100 !important;
+}
 
 .center-me h1 {
     font-family: 'Great Vibes', cursive;
