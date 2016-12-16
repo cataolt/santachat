@@ -24,7 +24,7 @@
                 ii poti scrie
             </h2>
             <h2 class="type13">
-                de scrisori zilnic
+                lui Mos Craciun
             </h2>
             <h3 class="type11">
                 Daca nu ai deja cont,
@@ -33,7 +33,11 @@
                 inscrie-te pentru o invitatie cu un mail la
             </p>
             <span class="type18">
-                <script type="text/javascript">document.write('s'+'e'+'c'+'r'+'e'+'t'+'a'+'r'+'a'+'m'+'o'+'s'+'u'+'l'+'u'+'i'+'@'+'s'+'a'+'n'+'t'+'a'+'c'+'h'+'a'+'t'+'.'+'r'+'o');</script>
+                <script language="javascript" type="text/javascript">
+                    var pre = "secretaramosului";
+                    document.write("<a href='mailto:" + pre + "@santachat.ro'>" + pre
+                        + "@ santachat.ro</a>");
+                    </script>
             </span>
         </div>
         </div>

@@ -5,7 +5,7 @@
         <div class="col-xs-12">
             <div class="write-block scisors children">
                  <textarea readonly><?php echo $mess->message; ?></textarea>
-                    <img class="cover" src="<?php echo site_url();?>/../public/images/cover.png" />
+                    
                     <img class="img-mobile" src="<?php echo site_url();?>/../public/images/Stampila.png" />
                 <?php if($mess->read == 0): ?>
                     <input type="hidden" value="<?php echo $mess->id;?>" name="parent_id" id="parent_id"/>

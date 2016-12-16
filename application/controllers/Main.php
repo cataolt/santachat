@@ -167,9 +167,8 @@ class Main extends CI_Controller {
 
         $this->user->changeStatus($user_info->id);
 
-        foreach($user_info as $key=>$val){
-            $this->session->set_userdata($key, $val);
-        }
+        $this->session->set_userdata(array('id' => $user_info->id));
+
         $this->load->view('header');
         $this->load->view('complete',array('user'=>$user_info));
         $this->load->view('footer');
@@ -373,7 +372,7 @@ class Main extends CI_Controller {
             $sentMessages = $this->user->loadMessages($user->id,1);
             $data['message'] = $messages;
             $data['sentMessage'] = $sentMessages;
-            $this->load->view('santachat/header');
+            $this->load->view('santachat/header', array('title' => 'No Account'));
             if(empty($messages) && $data['sentMessage']){
                 $pages = $this->pages;
                 $page =  $pages[array_rand($pages)];
@@ -402,7 +401,7 @@ class Main extends CI_Controller {
                 $data['sentMessage'] = $sentMessages;
                 $data['letterId'] = $id;
 
-                $this->load->view('santachat/header', array('noletter' => true));
+                $this->load->view('santachat/header', array('noletter' => true, 'title' => 'Letter'));
                 $this->load->view('santachat/content',$data);
                 $this->load->view('santachat/footer');
             } else {
@@ -447,7 +446,9 @@ class Main extends CI_Controller {
     }
 
     public function lettersuccess(){
-        $this->load->view('santachat/header');
+        $data['title'] = 'Letter Success';
+
+        $this->load->view('santachat/header', $data);
         $this->load->view('santachat/pages/grey');
         $this->load->view('santachat/footer');
     }
@@ -459,7 +460,7 @@ class Main extends CI_Controller {
             $messages = $this->user->loadMessages($user->id,2);
             $data['message'] = $messages;
 
-            $this->load->view('santachat/header');
+            $this->load->view('santachat/header', array('title' => 'Letter'));
             $this->load->view('santachat/letters',$data);
             $this->load->view('santachat/footer');
         } else {
@@ -476,10 +477,16 @@ class Main extends CI_Controller {
     }
 
     public function noaccount(){
-        $data['noletter'] = true;
-        $this->load->view('santachat/header',$data);
-        $this->load->view('santachat/noaccount');
-        $this->load->view('santachat/footer');
+        $user = $this->user->getUser();
+        if($user && $this->user->isValidUser($user->id)){
+            redirect(site_url().'main/children');
+        } else {
+            $data['noletter'] = true;
+            $data['title'] = 'No Account';
+            $this->load->view('santachat/header',$data);
+            $this->load->view('santachat/noaccount');
+            $this->load->view('santachat/footer');
+        }
     }
 
     public function loginexternal($session){

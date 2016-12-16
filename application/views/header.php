@@ -6,11 +6,15 @@
 <head>
     <meta charset="utf-8" />
     <title>Login</title>
+
+    <link rel="shortcut icon" href="<?php echo site_url();?>/../public/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="<?php echo site_url();?>/../public/images/favicon1.ico" type="image/x-icon">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Gravitas+One" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Ramaraja" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Sacramento" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Tangerine" rel="stylesheet">
     <!--Style-->
     <link href="<?php echo site_url();?>/../public/plugins/bootstrap-3.3.6-dist/bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="<?php echo site_url();?>/../public/styles/style.css" rel="stylesheet" />
@@ -24,6 +28,11 @@
     <!-- End Google Tag Manager -->
 </head>
 <body>
+<script type="text/javascript">
+  if(window.top === window.self){
+//    window.top.location.href = "http://santachat.ro";
+  }
+</script>
 <!--[if lt IE 8]>
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
@@ -37,7 +46,7 @@
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <a class="navbar-brand" href="http://santachat.ro">
+            <a class="navbar-brand" href="http://santachat.ro" target="_top">
                 <img src="<?php echo site_url();?>/../public/images/logo.png" />
             </a>
             <img src="<?php echo site_url();?>/../public/images/layer_7.png" class="visible-xs hidden-sm pull-right" />

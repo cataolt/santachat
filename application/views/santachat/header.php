@@ -3,13 +3,16 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Index</title>
+    <title><?php echo (isset($title))?$title:'SantaChat';?></title>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="<?php echo site_url();?>/../public/images/favicon2.ico" type="image/x-icon">
+    <link rel="icon" href="<?php echo site_url();?>/../public/images/favicon2.ico" type="image/x-icon">
     <!--Style-->
     <link href="https://fonts.googleapis.com/css?family=Gravitas+One" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Ramaraja" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Sacramento" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Tangerine" rel="stylesheet">
     <link href="<?php echo site_url();?>/../public/plugins/bootstrap-3.3.6-dist/bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="<?php echo site_url();?>/../public/styles/style.css" rel="stylesheet" />
     <script src="<?php echo site_url();?>/../public/scripts/jquery-2.2.4.min.js"></script>
