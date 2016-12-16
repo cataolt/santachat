@@ -40,8 +40,8 @@
     </style>
 </head>
 
-<body style="background: #C7EBFC; color: #2B3990; width: 100%; height: 100%; }">
-<div>
+<body>
+<div style="background: #C7EBFC; color: #2B3990; width: 100%; height: 100%; }">
     <div class="container" style="max-width: 800px; margin: 0; padding: 30px 0;">
         <div class="text" style="font-weight: bold; text-align: left; margin: 100px 50px 150px; font-size: 20.63px; font-family: \"Ramaraja\",regular;">
             <div>
